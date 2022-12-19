@@ -24,22 +24,21 @@ const movieDB = {
     ]
 };
 
-//1
-const promo = document.querySelector('.promo__adv');
-// console.log(promo);
+const promoImg = document.querySelectorAll('.promo__adv img'),
+    poster = document.querySelector('.promo__bg'),
+    genre = poster.querySelector('.promo__genre'),
+    movieList = document.querySelector('.promo__interactive-list');
 
-const body = document.querySelector('.body');
-promo.remove();
+//1 1) Удалить все рекламные блоки со страницы (правая часть сайта)
+promoImg.forEach(function(img) {
+    img.remove();
+});
 
-//2
-const genre = document.querySelector('.promo__genre');
-genre.innerText = 'Драма';
+//2 Изменить жанр фильма, поменять "комедия" на "драма"
+genre.textContent = 'Драма';
 
-//3
-const promoBg = document.querySelector('.promo__bg');
-console.log(promoBg);
-promoBg.style.backgroundImage = 'url(../img/bg.jpg)';
+//3 3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+poster.style.backgroundImage = 'url("img/bg.jpg")';
 
 //4
-movieDB.movies.sort();
-console.log(movieDB.movies);
+movieList.innerHTML = '';
