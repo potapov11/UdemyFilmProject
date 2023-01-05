@@ -26,7 +26,10 @@ const movieDB = {
 
 const imgs = document.querySelectorAll('.promo__adv img'),
       genre = document.querySelector('.promo__genre'),
-      promoBG = document.querySelector('.promo__bg');
+      promoBG = document.querySelector('.promo__bg'),
+      promoList = document.querySelector('.promo__interactive-list');
+      console.log(promoList);
+
       
 
 //1) Удалить все рекламные блоки со страницы (правая часть сайта)
@@ -44,7 +47,30 @@ genre.textContent = 'Драма';
 promoBG.style.backgroundImage = 'url(img/bg.jpg)';
 
 //4 Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту 
+//Отсортировать их по алфавиту 
+
+promoList.innerHTML = '';
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film) => {
+  promoList.innerHTML+= 
+  `<li class="promo__interactive-item">${film}
+  <div class="delete"></div>
+</li>`;
+});
+
+
+// const movieDB = {
+// 	movies: [
+// 		"Логан",
+// 		"Лига справедливости",
+// 		"Ла-ла лэнд",
+// 		"Одержимость",
+// 		"Скотт Пилигрим против..."
+// 	]
+// };
+
+
 
 
 
